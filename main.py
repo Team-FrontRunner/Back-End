@@ -1,10 +1,11 @@
 from fastapi import FastAPI
-from app.routers import users, games, health # games, health는 파일을 만든 후 추가
+from app.routers import users, games, health, products # games, health는 파일을 만든 후 추가
 
 app = FastAPI(title="할매피디아 API", version="1.0.0")
 
 # --- 라우터 등록 (조립) ---
 app.include_router(users.router)
+app.include_router(products.router)
 # app.include_router(games.router)  # 나중에 추가
 # app.include_router(health.router) # 나중에 추가
 
