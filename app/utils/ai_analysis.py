@@ -20,6 +20,7 @@ async def get_health_analysis_result(records: list, user_name: str) -> str:
     2. `category` 빈도수를 분석하여 Top 3 증상을 추출하세요.
     3. 계절(`created_at`)과 증상의 연관성을 파악하세요.
     4. 말투는 손주처럼 다정하고 예의 바르게("할머니, 이때는 많이 편찮으셨네요") 작성하세요.
+    5. 출력 형식은 .jsx파일에서 호환되는 형태로 제공하세요.
 
     # 출력 형식 (Markdown)
     ## 👵 {user_name}님의 건강 요약
