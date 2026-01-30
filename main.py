@@ -1,7 +1,7 @@
 # main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import users, games, health, products
+from app.routers import users, games, health, products,orders
 
 app = FastAPI(title="할매피디아 API (No-Auth)", version="1.0.0")
 
@@ -41,6 +41,7 @@ app.include_router(users.router, prefix="/api")
 app.include_router(products.router, prefix="/api")
 app.include_router(games.router, prefix="/api")
 app.include_router(health.router, prefix="/api")
+app.include_router(orders.router, prefix="/api")
 
 @app.get("/")
 def read_root():
