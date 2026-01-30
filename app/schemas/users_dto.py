@@ -1,19 +1,9 @@
-## 사용자 관련 입출력 모듈입니다.
-
+# app/schemas/users_dto.py
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
 
-# 로그인 요청 데이터
-class LoginRequest(BaseModel):
-    user_id: str
-
-# 토큰 응답 데이터
-class TokenResponse(BaseModel):
-    access_token: str
-    token_type: str
-
-# 응답 데이터
+# 응답 데이터 모델만 남김
 class UserResponse(BaseModel):
     user_id: str
     name: str
