@@ -1,16 +1,18 @@
 ## 사용자 관련 입출력 모듈입니다.
+import datetime
 
 from pydantic import BaseModel
 from typing import Optional
 
-# 회원가입 시 받을 데이터
-class UserCreate(BaseModel):
-    email: str
-    password: str
-    name: str
+# 프론트엔드에서 보낼 가짜 토큰
+class KakaoLoginRequest(BaseModel):
+    access_token: str
 
-# 응답으로 보낼 데이터 (비밀번호 제외 등)
+# 응답 데이터
 class UserResponse(BaseModel):
-    id: str
-    email: str
-    name: Optional[str] = None
+    user_id: str
+    name: str
+    profile_image_url: str
+    current_point: int
+    created_at: datetime
+    region: str
