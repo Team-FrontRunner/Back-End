@@ -9,11 +9,11 @@ app.include_router(products.router)
 app.include_router(games.router)
 app.include_router(health.router)
 
+
 @app.get("/")
 def read_root():
     return {"message": "할매피디아 서버가 정상 작동 중입니다! 👵"}
 
-# 파이참에서 실행할 때 필요한 코드 (터미널 실행 시엔 없어도 됨)
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
