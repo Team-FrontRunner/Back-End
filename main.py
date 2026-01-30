@@ -7,7 +7,7 @@ app = FastAPI(title="할매피디아 API", version="1.0.0")
 app.include_router(users.router)
 app.include_router(products.router)
 app.include_router(games.router)
-# app.include_router(health.router) # 나중에 추가
+app.include_router(health.router)
 
 @app.get("/")
 def read_root():

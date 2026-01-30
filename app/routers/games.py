@@ -6,12 +6,12 @@ from app.db.session import supabase
 from app.schemas.games_dto import GamesResponse
 
 router = APIRouter(
-    prefix="/games",
-    tags=["games"]
+    prefix="/game_records",
+    tags=["game_records"]
 )
 
 @router.get("/", response_model=List[GamesResponse], summary="게임 기록 가져오기")
-def get_products():
+def get_game_records():
     """
     Supabase 상의 game_records 테이블의 값을 불러와 프론트엔드에 전송합니다.
     """
