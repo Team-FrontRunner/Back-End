@@ -1,8 +1,8 @@
 ## 사용자 관련 입출력 모듈입니다.
-import datetime
 
 from pydantic import BaseModel
 from typing import Optional
+from datetime import datetime
 
 # 프론트엔드에서 보낼 가짜 토큰
 class KakaoLoginRequest(BaseModel):
@@ -12,7 +12,7 @@ class KakaoLoginRequest(BaseModel):
 class UserResponse(BaseModel):
     user_id: str
     name: str
-    profile_image_url: str
+    profile_image: Optional[str] = None
     current_point: int
-    created_at: datetime
-    region: str
+    region: Optional[str] = None
+    created_at: Optional[datetime] = None
