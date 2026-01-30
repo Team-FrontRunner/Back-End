@@ -2,7 +2,7 @@
 
 from fastapi import APIRouter, HTTPException
 from app.db.session import supabase
-from app.schemas.user_dto import KakaoLoginRequest, UserResponse
+from app.schemas.users_dto import KakaoLoginRequest, UserResponse
 
 router = APIRouter(prefix="/users", tags=["users"])
 

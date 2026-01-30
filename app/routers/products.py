@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from typing import List
 from app.db.session import supabase
-from app.schemas.product_dto import ProductResponse
+from app.schemas.products_dto import ProductResponse
 
 router = APIRouter(
     prefix="/products",
