@@ -4,6 +4,15 @@ from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
 
+# 로그인 요청 데이터
+class LoginRequest(BaseModel):
+    user_id: str
+
+# 토큰 응답 데이터
+class TokenResponse(BaseModel):
+    access_token: str
+    token_type: str
+
 # 응답 데이터
 class UserResponse(BaseModel):
     user_id: str
