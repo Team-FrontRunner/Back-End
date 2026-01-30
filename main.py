@@ -5,9 +5,27 @@ from app.routers import users, games, health, products,orders
 
 app = FastAPI(title="할매피디아 API (No-Auth)", version="1.0.0")
 
-# --- CORS 설정 ---
-# 개발 편의를 위해 모든 출처, 모든 메서드, 모든 헤더를 허용합니다.
-origins = ["*"]
+# --- CORS 설정 (프론트엔드 연동 필수) ---
+origins = [
+    "http://localhost:3000",    # React/Next.js 기본 포트
+    "http://localhost:5173",    # Vite 기본 포트
+    "http://127.0.0.1:3000",
+    "*"                         # (주의) 개발 중엔 모든 곳 허용, 배포 시엔 특정 도메인만 허용할 것
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],  # GET, POST, PUT, DELETE 등 모든 메서드 허용
+    allow_headers=["*"],  # 모든 헤더 허용
+)
+
+# --- 라우터 등록 (조립) ---
+app.include_router(users.router, prefix="/api")
+app.include_router(products.router, prefix="/api")
+app.include_router(games.router, prefix="/api")
+# app.include_router(health.router, prefix="/api") # 나중에 추가
 
 app.add_middleware(
     CORSMiddleware,
